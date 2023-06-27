@@ -2,12 +2,12 @@ import GreetMessage from '../../components/Greet';
 const AccountCreated = () => {
 
     return (
-        <GreetMessage
-            image={require('../../assets/image/cross.png')}
-            heading={'SORRY'}
-            text={'Something went wrong. Please try again to continue your order.'}
-            btnText={'TRY AGAIN'}
-        />
+        // <GreetMessage
+        //     image={require('../../assets/image/cross.png')}
+        //     heading={'SORRY'}
+        //     text={'Something went wrong. Please try again to continue your order.'}
+        //     btnText={'TRY AGAIN'}
+        // />
         // <GreetMessage
         //     image={require('../../assets/image/tick.png')}
         //     heading={'SUCCESSFUL'}
@@ -26,12 +26,12 @@ const AccountCreated = () => {
         //     text={'Your Password had been Reset!.'}
         //     btnText={'SHOP NOW'}
         // />
-        //     <GreetMessage
-        //     image={require('../../assets/image/lock.png.')}
-        //     heading={'ACCOUNT CREATED'}
-        //     text={'Your account had been created successfully'}
-        //     btnText={'SHOP NOW'}
-        // />
+        <GreetMessage
+            image={require('../../assets/image/lock.png')}
+            heading={'ACCOUNT CREATED'}
+            text={'Your account had been created successfully'}
+            btnText={'SHOP NOW'}
+        />
     )
 }
 

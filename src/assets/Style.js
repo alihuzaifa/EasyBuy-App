@@ -152,8 +152,8 @@ const GlobalStyle = StyleSheet.create({
         alignItems: "center",
     },
     GreetImage: {
-        width: responsive.horizontal(30),
-        height: responsive.vertical(15),
+        width: responsive.horizontal(25),
+        height: responsive.vertical(14),
         tintColor: COLOR.greetImageColor
     },
     greetText: {

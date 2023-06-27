@@ -4,7 +4,7 @@ import GlobalStyle from '../../assets/Style';
 import { FontAwesome } from '../../assets/Icon';
 import Button from '../../components/Button';
 import HeadingChildText from '../../components/HeadingChildText';
-const ForgotPassword = () => {
+const ForgotPassword = ({ navigation }) => {
   return (
     <SafeAreaView style={GlobalStyle.mainContainer}>
       <View style={GlobalStyle.centerBox}>
@@ -20,7 +20,9 @@ const ForgotPassword = () => {
           />
           <FontAwesome name="envelope-o" />
         </View>
-        <Button>Send</Button>
+        <Button onPress={() => {
+          navigation.navigate('reset')
+        }}>Send</Button>
       </View>
     </SafeAreaView>
   )
