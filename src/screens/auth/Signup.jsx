@@ -10,6 +10,7 @@ import TextWithIcon from '../../components/TextWithIcon';
 import { useFormik } from 'formik';
 import { SignupSchema, SignupValues } from '../../assets/schema';
 import { postApiMethod } from '../../assets/Api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Signup = ({ navigation }) => {
     const [isLoad, setIsLoad] = useState(false)
     const [mainError, setMainError] = useState('')
@@ -21,18 +22,19 @@ const Signup = ({ navigation }) => {
             setIsLoad(true)
             const { email, password, name, phone } = values
             const postObj = { email, password, name, phone }
-            const { data, status } = await postApiMethod('/user/login', postObj)
-            console.log("🚀data:", data)
-            // if (status == 200) {
-            //     formik.resetForm()
-            //     setIsLoad(false)
-            // } else {
-            //     setIsLoad(false)
-            //     setMainError('Server Error');
-            //     setTimeout(() => {
-            //         setMainError('');
-            //     }, 5000);
-            // }
+            const { status, data } = await postApiMethod('signup', postObj)
+            if (status === 200) {
+                const { email, _id } = data
+                await AsyncStorage.setItem('id', JSON.stringify(_id));
+                await AsyncStorage.setItem('email', JSON.stringify(email));
+                navigation.navigate('otp', email)
+            } else {
+                setIsLoad(false)
+                setMainError('User Already Exist');
+                setTimeout(() => {
+                    setMainError('');
+                }, 5000);
+            }
             setIsLoad(false)
 
         },
@@ -107,9 +109,7 @@ const Signup = ({ navigation }) => {
                     }}>
                         {isLoad ? <ActivityIndicator size={'large'} color={'white'} /> : "Sign up"}
                     </Button>
-                    {formik.touched.password && formik.errors.password && (
-                        <Text style={GlobalStyle.error}>{mainError}</Text>
-                    )}
+                    <Text style={GlobalStyle.error}>{mainError}</Text>
                     <View style={{ marginTop: 13 }}>
                         <HeadingChildText>Or continue with</HeadingChildText>
                     </View>
@@ -122,5 +122,4 @@ const Signup = ({ navigation }) => {
         </ScrollView>
     )
 }
-
 export default Signup

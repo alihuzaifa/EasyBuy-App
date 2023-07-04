@@ -18,7 +18,6 @@ import { useFormik } from 'formik';
 import { SigninSchema, SigninValues } from '../../assets/schema';
 import { postApiMethod } from '../../assets/Api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 const Login = ({ navigation }) => {
     const [isLoad, setIsLoad] = useState(false)
     const [mainError, setMainError] = useState('')
