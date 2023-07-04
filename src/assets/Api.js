@@ -1,6 +1,6 @@
 import axios from "axios";
 // let baseURL = 'https://adorable-culottes-worm.cyclic.app/';
-const baseURL = 'http://localhost:5000/';
+const baseURL = 'https://glamorous-bee-miniskirt.cyclic.app/user/';
 const service = axios.create({ baseURL });
 const getApiMethod = async (url) => {
     try {

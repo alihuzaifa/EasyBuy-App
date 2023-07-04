@@ -17,6 +17,8 @@ import Link from '../../components/Link';
 import { useFormik } from 'formik';
 import { SigninSchema, SigninValues } from '../../assets/schema';
 import { postApiMethod } from '../../assets/Api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Login = ({ navigation }) => {
     const [isLoad, setIsLoad] = useState(false)
     const [mainError, setMainError] = useState('')
@@ -27,8 +29,9 @@ const Login = ({ navigation }) => {
             setIsLoad(true)
             const { email, password } = values
             const postObj = { email, password }
-            const { status, data } = await postApiMethod('https://glamorous-bee-miniskirt.cyclic.app/user/login', postObj)
+            const { data, status } = await postApiMethod('login', postObj)
             if (status == 200) {
+                await AsyncStorage.setItem('id', JSON.stringify(data?._id));
                 formik.resetForm()
                 setIsLoad(false)
             } else {

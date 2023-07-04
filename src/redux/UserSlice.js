@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    userId: "", email: ""
+    userId: "", email: "",
 }
 const UserCounterSlice = createSlice({
     name: "User",
@@ -14,7 +14,7 @@ const UserCounterSlice = createSlice({
         },
         logout: (state) => {
             state.userId = ''
-        },
+        }
     }
 })
 export const {
