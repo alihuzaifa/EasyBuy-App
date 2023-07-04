@@ -60,10 +60,11 @@ const GlobalStyle = StyleSheet.create({
         borderWidth: 1,
         paddingHorizontal: responsive.horizontal(3.5),
         borderRadius: responsive.horizontal(9),
-        paddingVertical: responsive.vertical(1.5),
+        paddingVertical: responsive.vertical(1.2),
         backgroundColor: COLOR.inputBg,
         justifyContent: "center"
     },
+    error: { color: 'red', marginLeft: responsive.horizontal(3), marginVertical: responsive.vertical(.2), fontFamily: 'Poppins-Regular' },
     input: {
         flex: 1,
         fontSize: responsive.fontSize(2.2),
@@ -86,7 +87,7 @@ const GlobalStyle = StyleSheet.create({
     button: {
         backgroundColor: COLOR.btnBg,
         borderRadius: responsive.horizontal(9),
-        paddingVertical: responsive.vertical(2.4),
+        paddingVertical: responsive.vertical(2),
         paddingHorizontal: responsive.horizontal(4),
         alignItems: 'center',
         marginTop: responsive.vertical(2.5),
